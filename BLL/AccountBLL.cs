@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using WeatherAPI.DAL;
+﻿using WeatherAPI.DAL;
 using WeatherAPI.DAL.Models;
 using WeatherAPI.DAL.QueryModels;
 using WeatherAPI.Helpers.Mappers;

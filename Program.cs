@@ -1,5 +1,7 @@
 using WeatherAPI.BLL;
+using WeatherAPI.BLL.Region;
 using WeatherAPI.DAL;
+using WeatherAPI.DAL.Region;
 
 namespace WeatherAPI;
 
@@ -7,7 +9,8 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var context = new Context();
+        var context = new Context(); 
+        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
         
         var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +29,8 @@ public class Program
         builder.Services.AddScoped<IAccountBLL, AccountBLL>();
         builder.Services.AddSingleton<IEncrypt, Encrypt>();
         builder.Services.AddSingleton<IAuth, Auth>();
+        builder.Services.AddSingleton<IRegionDAL, RegionDAL>();
+        builder.Services.AddScoped<IRegionBLL, RegionBLL>();
 
         var app = builder.Build();
 

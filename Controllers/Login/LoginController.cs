@@ -4,7 +4,7 @@ using WeatherAPI.DAL.Models;
 
 namespace WeatherAPI.Controllers;
 
-public class LoginController : ControllerBase, ILoginController
+public class LoginController : ControllerBase
 {
     private readonly IAccountBLL accountBll;
     private readonly IEncrypt encrypt;

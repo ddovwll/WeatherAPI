@@ -4,7 +4,7 @@ using WeatherAPI.DAL.Models;
 
 namespace WeatherAPI.Controllers;
 
-public class AccountController : ControllerBase, IAccountController
+public class AccountController : ControllerBase
 {
     private readonly IAccountBLL accountBll;
     private readonly IAuth auth; 
@@ -102,4 +102,6 @@ public class AccountController : ControllerBase, IAccountController
         await accountBll.DeleteAsync(modelFromDb);
         return Ok();
     }
+    
+    
 }
