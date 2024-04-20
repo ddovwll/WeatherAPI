@@ -11,14 +11,14 @@ public class RegionBLL : IRegionBLL
         this.regionDal = regionDal;
     }
 
-    public async Task AddRegion(DAL.Models.Region model, int accountId)
+    public async Task AddRegion(DAL.Models.Region model, int accountId, int regionTypeId)
     {
-        await regionDal.AddRegion(model, accountId);
+        await regionDal.AddRegion(model, accountId, regionTypeId);
     }
 
-    public async Task UpdateRegion(DAL.Models.Region model, int userId)
+    public async Task UpdateRegion(DAL.Models.Region model, int userId, int regionTypeId)
     {
-        await regionDal.UpdateRegion(model, userId);
+        await regionDal.UpdateRegion(model, userId, regionTypeId);
     }
 
     public async Task<DAL.Models.Region> GetRegionById(int id)

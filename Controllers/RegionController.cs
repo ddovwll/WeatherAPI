@@ -51,7 +51,7 @@ public class RegionController : ControllerBase
         if ((await regionBLL.GetRegionByLatLong(model.Latitude, model.Longitude)).Id != 0)
             return Conflict();
         int userId = int.Parse(Request.Cookies["UserId"]!);
-        await regionBLL.AddRegion(model, userId);
+        await regionBLL.AddRegion(model, userId, model.RegionType);
         var resultModel = new
         {
             id = model.Id,
@@ -78,7 +78,7 @@ public class RegionController : ControllerBase
             return Conflict();
         int userId = int.Parse(Request.Cookies["UserId"]!);
         model.Id = regionId;
-        await regionBLL.UpdateRegion(model, userId);
+        await regionBLL.UpdateRegion(model, userId, model.RegionType);
         var resultModel = new
         {
             id = model.Id,

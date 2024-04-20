@@ -4,19 +4,22 @@ namespace WeatherAPI.DAL.Region;
 
 public class RegionDAL : IRegionDAL
 {
-    public async Task AddRegion(Models.Region model, int accountId)
+    public async Task AddRegion(Models.Region model, int accountId, int regionTypeId)
     {
         await using var context = new Context();
         var account = await context.Accounts.FindAsync(accountId);
+        var regionType = await context.RegionTypes.FindAsync(regionTypeId);
         model.Account = account!;
+        model.RegionTypeModel = regionType!;
         await context.Regions.AddAsync(model);
         await context.SaveChangesAsync();
     }
 
-    public async Task UpdateRegion(Models.Region model, int userId)
+    public async Task UpdateRegion(Models.Region model, int userId, int regionTypeId)
     {
         await using var context = new Context();
         model.Account = await context.Accounts.FindAsync(userId);
+        model.RegionTypeModel = await context.RegionTypes.FindAsync(regionTypeId);
         await Task.Run(() =>
         {
             context.Regions.Update(model);

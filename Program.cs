@@ -1,7 +1,9 @@
 using WeatherAPI.BLL;
 using WeatherAPI.BLL.Region;
+using WeatherAPI.BLL.RegionType;
 using WeatherAPI.DAL;
 using WeatherAPI.DAL.Region;
+using WeatherAPI.DAL.RegionType;
 
 namespace WeatherAPI;
 
@@ -31,6 +33,8 @@ public class Program
         builder.Services.AddSingleton<IAuth, Auth>();
         builder.Services.AddSingleton<IRegionDAL, RegionDAL>();
         builder.Services.AddScoped<IRegionBLL, RegionBLL>();
+        builder.Services.AddSingleton<IRegionTypeDAL, RegionTypeDAL>();
+        builder.Services.AddScoped<IRegionTypeBLL, RegionTypeBLL>();
 
         var app = builder.Build();
 
