@@ -5,7 +5,7 @@ using WeatherAPI.DAL.Models;
 
 namespace WeatherAPI.Controllers;
 
-public class RegisterController : ControllerBase, IRegisterController
+public class RegisterController : ControllerBase
 {
     private readonly IAccountBLL accountBll;
 

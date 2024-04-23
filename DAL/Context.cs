@@ -13,4 +13,6 @@ public class Context : DbContext
     public DbSet<Account> Accounts { get; set; } = null!;
     public DbSet<Models.Region> Regions { get; set; } = null!;
     public DbSet<Models.RegionType> RegionTypes { get; set; } = null!;
+    public DbSet<Weather> Weathers { get; set; } = null!;
+    public DbSet<WeatherForecast> WeatherForecasts { get; set; } = null!;
 }
